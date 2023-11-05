@@ -1,0 +1,190 @@
+html {
+  font-family: Lato, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+/* Header/Navbar Block */
+.navbar {
+  max-width: 640px;
+  /* 50px from top and bottom and auto left right */
+  margin: 50px auto;
+  /* we want to have 20px from left and right,
+  we can't do this in the margin because the navbar 
+  won't be centered if the page exceeds 640px width. */
+  padding: 0 20px;
+  /* To display the ul list of Recent and Calendar,
+  we have to use flex to tell it that we have them in
+  a row instead of a column format */
+  display: flex;
+  flex-direction: row;
+  /* separate the ul from the div as much as possible with
+  this attribute */
+  justify-content: space-between;
+  font-size: 24px;
+}
+
+.navbar__brand {
+  display: flex;
+  /*  Align the Microblog text to the center of the logo.*/
+  align-items: center;
+}
+
+.navbar__logo {
+  /* Have a gap between the logo and the Microblog text. */
+  margin-right: 30px;
+}
+
+.navbar__navigation {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  /* Remove bulletpoints from the list elements */
+  list-style: none;
+  color: #5c6b70;
+}
+
+.navbar__navigation-item {
+  /* Seperate the two list elements */
+  margin-left: 50px;
+}
+
+.navbar__link {
+  /* Remove link underlines */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Main Block */
+.main {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Form Block */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.form__input {
+  /* To make label and textarea take the entire 
+  width of the form content */
+  width: 100%;
+}
+
+.form__label {
+  /* To make the label take the entire width of the form,
+    so the next element will be placed under it, because
+    we are using flex column. */
+  display: block;
+  /* Separate the label from the input by 10px. */
+  margin-bottom: 10px;
+}
+
+.form__textarea {
+  /* inherits from form__input which sets it to 100% */
+  width: inherit;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  background-color: #f3f6f6;
+  margin-bottom: 10px;
+}
+
+.form__submit {
+  background-color: #3cd0ff;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  /* Separate the text and the button background further */
+  padding: 5px 30px;
+  /* Make the button curved */
+  border-radius: 20px;
+  color: white;
+  /* Change the cursor to hand */
+  cursor: pointer;
+}
+
+.form__submit:hover {
+  background-color: #18c1e1;
+}
+
+/* Entry block */
+.entry {
+  margin-top: 50px;
+}
+
+.entry__title {
+  /* Because time element is already inline, making the h2 title inline
+    makes them appear side by side like intended */
+  display: inline;
+  font-size: 18px;
+}
+
+.entry__date {
+  color: #5c6b70;
+}
+
+.entry__content {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.footer {
+  background-color: #323f43;
+  padding: 40px 0;
+  margin-top: 50px;
+  border-top: 4px solid black;
+  color: white;
+  font-size: 12px;
+}
+
+.footer__content {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer .left {
+  /* When multiple elements have flex-grow,
+  the element that has more flex-grow will take more space
+  based on the ratio e.g. 2/3, 1/3 */
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .right {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.footer__item {
+  margin-bottom: 5px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__item:hover {
+  text-decoration: underline;
+}

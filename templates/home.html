@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microblog</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar__brand">
+        <img class="navbar__logo" src="/static/Logo.svg" alt="The Microblog logo" />Microblog
+      </div>
+      <ul class="navbar__navigation">
+        <li class="navbar__navigation-item">
+          <a href="#" class="navbar__link">Recent</a>
+        </li>
+        <li class="navbar__navigation-item">
+          <a href="#" class="navbar__link">Calendar</a>
+        </li>
+      </ul>
+    </header>
+    <main class="main">
+      <section>
+        <h1>Add new entry</h1>
+        <form class="form" method="post">
+          <!-- we use p here to group together the label and the input area, to separate from the button below it, so it's an
+          actual paragraph here. -->
+          <p class="form__input">
+            <label class="form__label" for="entry">Entry Content:</label>
+            <textarea class="form__textarea" name="content" id="entry" cols="30" rows="10">
+            </textarea>
+          </p>
+          <button class="form__submit" type="submit">Add Entry</button>
+        </form>
+      </section>
+      <section>
+        <h1>Recent posts</h1>
+        {% for entry in entries %}
+        <article class="entry">
+          <div>
+            <h2 class="entry__title">{{ entry["content"] | truncate(30, true) }}</h2>
+            <time class="entry__date" datetime='{{ entry["date"] }}'
+              >• {{ entry["date"] }}</time
+            >
+          </div>
+          <p class="entry__content">{{ entry["content"] }}</p>
+        </article>
+        {% endfor %}
+      </section>
+    </main>
+    <footer class="footer">
+      <!-- This div represents the content of the footer, we need it because actual footer spans the entire width of the page
+      but the content has to be the same width as the header so we have to separate them. -->
+      <div class="footer__content">
+        <section class="left">
+          <a class="footer__item" href="#">Made by SWORDLION</a>
+          <a class="footer__item" href="#">Check my other projects</a>
+        </section>
+        <section class="right">
+          <!-- These individual divs represent columns at the right side of the footer, we have 2 columns -->
+          <div class="footer__column">
+            <a class="footer__item" href="#">Recent</a>
+            <a class="footer__item" href="#">Calendar</a>
+          </div>
+          <div class="footer__column">
+            <a class="footer__item" href="#">About</a>
+            <a class="footer__item" href="#">How this was made</a>
+          </div>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
