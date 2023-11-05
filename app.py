@@ -7,8 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-print("test")
-
 
 def create_app():
     app = Flask(__name__)
